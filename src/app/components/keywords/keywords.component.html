@@ -1,0 +1,25 @@
+<div
+    class="block max-w m-1 p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <h5
+        class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{
+        title }}</h5>
+
+    <div class="flex flex-wrap">   
+        
+        @switch (color) {
+            @case ('green') { 
+                <span *ngFor="let item of items | keyvalue"
+                class="bg-green-100 text-green-800 text-sm font-medium mt-2 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 border border-green-400">{{item.key}} : {{item.value}}</span>
+             }
+            @case ('red') { 
+                <span *ngFor="let item of items | keyvalue"
+                class="bg-red-100 text-red-800 text-sm font-medium mt-2 me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-red-400 border border-red-400">{{item.key}} : {{item.value}}</span>
+             }
+            @default { 
+                <span *ngFor="let item of items | keyvalue"
+                class="bg-green-100 text-green-800 text-sm font-medium mt-2 me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 border border-green-400">{{item.key}} : {{item.value}}</span>
+             }
+          }
+
+    </div>
+</div>
