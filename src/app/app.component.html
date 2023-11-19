@@ -14,10 +14,10 @@
     <app-text-area [title]="'Job Description'" (textChangeEvent)="jobDescriptionChange($event)"></app-text-area>
   </div>
 
-  <button type="button" ng-click="matchService.match()"
+  <!-- <button type="button" ng-click="matchService.match()"
     class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
     Match the Resume
-  </button>
+  </button> -->
 
   <div class="grid grid-cols-2">
     <app-keywords [title]="'Matched Keywords'" [color]="'green'" [items]="matchService.matchedKeywords()"></app-keywords>    
