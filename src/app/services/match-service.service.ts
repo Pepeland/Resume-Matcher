@@ -33,7 +33,7 @@ export class MatchServiceService {
   match() {
     this.extractResumeKeywords();
     this.matchedKeywords.set(this.matchAndCount(this.jobDescriptionText, this.resumeKeywords));
-    this.unmatchedKeywords.set(this.matchAndCount(this.jobDescriptionText, this.keywords.filter(k => !this.resumeKeywords.includes(k))));
+    this.unmatchedKeywords.set(this.matchAndCount(this.jobDescriptionText, this.keywords.filter(k => !this.resumeKeywords.includes(k.trim().replace(/\\/g, "").replace(/,$/, '')))));
   }
 
   matchAndCount(text: string, keywords: string[]) {
