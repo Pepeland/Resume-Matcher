@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class TextAreaComponent {
   @Input({ required: true }) title!: string;
+  @Input() placeholder!: string;
   @Output() textChangeEvent = new EventEmitter<string>();
   textAreaValue: string = '';
 
