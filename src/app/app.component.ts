@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { TextAreaComponent } from './components/text-area/text-area.component';
 import { KeywordsComponent } from './components/keywords/keywords.component';
+import { SettingsService } from './services/settings.service';
 
 @Component({
   selector: 'app-root',
@@ -17,24 +18,37 @@ import { KeywordsComponent } from './components/keywords/keywords.component';
 })
 export class AppComponent implements OnInit {
   keywordsUrl: string = '/assets/keywords.json';
-  title = signal<string>('Resume Matcher');  
+  title = signal<string>('Resume Matcher');
 
-  constructor(public matchService: MatchServiceService, private http: HttpClient) {   
+  constructor(public matchService: MatchServiceService, private settingsService: SettingsService,
+     private http: HttpClient) {   
     this.http.get<string[]>(this.keywordsUrl).subscribe(res => {      
       this.matchService.keywords = res;      
     });
   }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
+    this.LoadSettings();
   }
 
-  resumeChange(resume: any) {    
+  resumeChange(resume: any) {
+    this.settingsService.setLatestResume(resume);
     this.matchService.resumeText = resume;
     this.matchService.match();
   }
 
   jobDescriptionChange(jobDescription: any) {    
+    this.settingsService.setLatestJobDescription(jobDescription);
     this.matchService.jobDescriptionText = jobDescription;    
     this.matchService.match();
   }
+
+  LoadSettings() {
+    this.matchService.resumeText = this.settingsService.getLatestResume();
+    this.matchService.jobDescriptionText = this.settingsService.getLatestJobDescription();
+    setTimeout(() => {
+      this.matchService.match();      
+    }, 100);
+  }
+
 }

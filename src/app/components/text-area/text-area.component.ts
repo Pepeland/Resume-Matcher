@@ -12,21 +12,21 @@ import { FormsModule } from '@angular/forms';
 export class TextAreaComponent {
   @Input({ required: true }) title!: string;
   @Input() placeholder!: string;
-  @Output() textChangeEvent = new EventEmitter<string>();
-  textAreaValue: string = '';
+  @Input() text!: string;
+  @Output() textChangeEvent = new EventEmitter<string>();  
 
   onTextareaChange(input: any) {            
-    this.textChangeEvent.emit(this.textAreaValue);
+    this.textChangeEvent.emit(this.text);
   }
 
   async past() {    
-    this.textAreaValue = await navigator.clipboard.readText();
-    this.textChangeEvent.emit(this.textAreaValue);
+    this.text = await navigator.clipboard.readText();
+    this.textChangeEvent.emit(this.text);
   }
 
   clear() {
-    this.textAreaValue = '';
-    this.textChangeEvent.emit(this.textAreaValue);
+    this.text = '';
+    this.textChangeEvent.emit(this.text);
   }
   
 }

@@ -10,8 +10,8 @@
   <hr class="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700">
 
   <div class="grid grid-cols-2">
-    <app-text-area [title]="'Resume'" (textChangeEvent)="resumeChange($event)" [placeholder]="'Past your resume here...'"></app-text-area>
-    <app-text-area [title]="'Job Description'" (textChangeEvent)="jobDescriptionChange($event)" [placeholder]="'Past Job Description here...'"></app-text-area>
+    <app-text-area [title]="'Resume'" [text]="matchService.resumeText" (textChangeEvent)="resumeChange($event)" [placeholder]="'Past your resume here...'"></app-text-area>
+    <app-text-area [title]="'Job Description'" [text]="matchService.jobDescriptionText" (textChangeEvent)="jobDescriptionChange($event)" [placeholder]="'Past Job Description here...'"></app-text-area>
   </div>
 
   <div class="grid grid-cols-2">
