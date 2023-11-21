@@ -2,6 +2,7 @@
     "C#",
     "\\.NET",
     "MVC",
+    "MVVM",
     "Angular",
     "JavaScript",
     "SQL Server",
@@ -64,6 +65,7 @@
     " C ",
     "AWS",
     "XML",
+    "JSON",
     "responsive",
     "Design",
     "Perl",
@@ -175,6 +177,7 @@
     "MQTT",
     "Node",
     "Node.js",
+    "NPM",
     "Hibernate",
     "Spring Boot",
     "Maven",
@@ -242,5 +245,7 @@
     "Machine Learning",
     " ML ",
     "CI/CD",
-    "YAML"  
+    "YAML",
+    "Swagger",
+    "Debug"  
 ]
